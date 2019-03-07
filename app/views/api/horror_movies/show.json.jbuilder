@@ -1,0 +1,1 @@
+json.partial! "horror_movies.json.jbuilder", inside_movie: @movie
