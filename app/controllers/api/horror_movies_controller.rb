@@ -21,4 +21,15 @@ class Api::HorrorMoviesController < ApplicationController
     render 'show.json.jbuilder'
   end
 
+  def update
+    movie = params[:id]
+    @movie = HorrorMovie.find_by(id:movie)
+    @movie.title = params[:title] || @movie.title
+    @movie.director = params[:director] || @movie.director
+    @movie.runtime = params[:runtime] || @movie.runtime
+    @movie.rating = params[:rating] || @movie.rating
+    @movie.save
+    render 'show.json.jbuilder'
+  end
+
 end
